@@ -104,7 +104,6 @@ button:hover {
   color: #333;
 }
 
-/*input de filtro*/
 #listado_clientes input[type="text"] {
   width: 100%;
   max-width: 300px;

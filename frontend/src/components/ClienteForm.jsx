@@ -25,7 +25,6 @@ export default function ClienteForm({ cambiarVista }) {
       alert("Error al crear el cliente!!");
     }
 
-    // Limpiar formulario
     setNombre("");
     setApellido("");
     setFecha("");
