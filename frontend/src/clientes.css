@@ -1,0 +1,326 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background-color: #272727;
+  color: #f86d10;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+h1,
+h2 {
+  text-align: center;
+  font-family: sans-serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #f86d10;
+  padding: 10px;
+}
+
+h2 {
+  font-size: 22px;
+}
+
+form {
+  background-color: transparent;
+  padding: 20px 0;
+  max-width: 500px;
+  margin: auto;
+  box-shadow: 0px 0px 55px #fff2;
+  margin-top: 50px;
+  border-radius: 8px;
+}
+
+.form_input {
+  margin-bottom: 15px;
+}
+
+.form_input label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 0.9em;
+}
+
+.form_input input {
+  width: 100%;
+  padding: 6px 12px;
+  border: 2px solid #666;
+  border-radius: 4px;
+  background-color: transparent;
+  color: #eee;
+}
+
+input:valid {
+  color: rgb(0, 158, 0);
+}
+
+input:invalid {
+  color: rgb(246, 44, 44);
+}
+
+button {
+  border-radius: 5px;
+  padding: 6px 12px;
+  border: none;
+  background-color: #2c2c2c;
+  color: white;
+  transition: 0.3s;
+  letter-spacing: 2px;
+}
+
+button:hover {
+  background-color: #f86d10;
+}
+
+#menu_gestion_cliente {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin: 50px 0;
+}
+
+#listado_clientes {
+  width: 90%;
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px #0005;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow-x: auto;
+}
+
+#listado_clientes h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/*input de filtro*/
+#listado_clientes input[type="text"] {
+  width: 100%;
+  max-width: 300px;
+  display: block;
+  margin: 0 auto 15px auto;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.2s;
+}
+
+#listado_clientes input[type="text"]:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+#tabla_clientes {
+  width: 100%;
+  min-width: 600px;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+#tabla_clientes th,
+#tabla_clientes td {
+  padding: 12px 10px;
+  border-bottom: 1px solid #777;
+  color: #000000;
+  font-size: 14px;
+  text-align: left;
+}
+
+#tabla_clientes th {
+  background-color: #494949;
+  color: white;
+  font-weight: bold;
+}
+
+#tabla_clientes tr:nth-child(even) {
+  background-color: #444;
+}
+
+#tabla_clientes tr:hover {
+  background-color: #f86d10;
+}
+
+#tabla_clientes button {
+  padding: 6px 10px;
+  margin: 0 3px;
+  font-size: 13px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.1s, background-color 0.2s;
+}
+
+#tabla_clientes button:hover {
+  transform: scale(1.05);
+}
+
+#tabla_clientes .editar-btn {
+  background-color: #007bff;
+  color: white;
+}
+
+#tabla_clientes .editar-btn:hover {
+  background-color: #0056b3;
+}
+
+#tabla_clientes .eliminar-btn {
+  background-color: #dc3545;
+  color: white;
+}
+
+#tabla_clientes .eliminar-btn:hover {
+  background-color: #a71d2a;
+}
+
+.form_submit {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.volver_admin,
+.button_volver_menu {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 8px 12px;
+  background-color: #2c2c2c;
+  color: #f86d10;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 6px;
+  transition: 0.3s ease;
+}
+
+.volver_admin:hover,
+.button_volver_menu:hover {
+  background-color: #f86d10;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+  #menu_gestion_cliente button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .form_input input {
+    padding: 4px 10px;
+  }
+  h2 {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 750px) {
+  #tabla_clientes th,
+  #tabla_clientes td {
+    font-size: 12px;
+    padding: 8px;
+  }
+  #tabla_clientes button {
+    font-size: 11px;
+    padding: 4px 6px;
+  }
+}
+
+@media (max-width: 600px) {
+  #tabla_clientes {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  #listado_clientes {
+    padding: 10px;
+  }
+  #listado_clientes input[type="text"] {
+    max-width: 100%;
+  }
+}
+
+#form_editar_cliente {
+  max-width: 400px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#form_editar_cliente h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+#form_editar_cliente label {
+  display: block;
+  margin-top: 10px;
+  font-weight: 600;
+  color: #444;
+}
+
+#form_editar_cliente input {
+  width: 100%;
+  padding: 8px 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.2s;
+}
+
+#form_editar_cliente input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+#form_editar_cliente button {
+  width: 48%;
+  padding: 10px;
+  margin-top: 15px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+#form_editar_cliente button:first-of-type {
+  background-color: rgb(0, 158, 0);
+  color: white;
+}
+
+#form_editar_cliente button:first-of-type:hover {
+  background-color: rgb(0, 158, 0);
+  transform: scale(1.02);
+}
+
+#form_editar_cliente button:last-of-type {
+  background-color: rgb(246, 44, 44);
+  color: white;
+}
+
+#form_editar_cliente button:last-of-type:hover {
+  background-color: rgb(246, 44, 44);
+  transform: scale(1.02);
+}
+
+#form_editar_cliente .botones {
+  display: flex;
+  justify-content: space-between;
+}
