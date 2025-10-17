@@ -18,6 +18,19 @@ export default function ClienteForm({ cambiarVista }) {
       return;
     }
 
+    const nacimiento = new Date(fecha);
+    const hoy = new Date();
+    const edad =
+      hoy.getFullYear() -
+      nacimiento.getFullYear() -
+      (hoy <
+      new Date(hoy.getFullYear(), nacimiento.getMonth(), nacimiento.getDate())
+        ? 1
+        : 0);
+    if (edad < 11) {
+      alert("El cliente debe tener al menos 11 años!");
+      return;
+    }
     const nuevoCli = { nombre, apellido, fecha, email, telefono };
     try {
       const res = await fetch("http://localhost:3007/clientes", {
@@ -26,10 +39,13 @@ export default function ClienteForm({ cambiarVista }) {
         body: JSON.stringify(nuevoCli),
       });
       const data = await res.json();
+      if (!res.ok) {
+        throw new Error(data.Error || data.mensaje || "Error desconocido");
+      }
       alert(data.mensaje);
       cambiarVista("listado");
-    } catch {
-      alert("Error al crear el cliente!!");
+    } catch (err) {
+      alert("Error al crear el cliente: " + err.mensaje);
     }
 
     setNombre("");

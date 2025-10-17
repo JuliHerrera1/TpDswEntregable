@@ -65,13 +65,15 @@ export default function TurnosList({
           </tr>
         </thead>
         <tbody>
-          {turnos.length == 0 && (
+          {turnos.length === 0 && (
             <tr>
               <td colSpan="5">No hay turnos disponibles</td>
             </tr>
           )}
           {turnos.map((t) => {
-            const fechaFormateada = new Date(t.dia).toLocaleDateString("es-AR");
+            const fechaFormateada = t.dia
+              ? t.dia.split("-").reverse().join("/")
+              : "";
             return (
               <tr key={t.id}>
                 <td>{t.id}</td>
