@@ -10,8 +10,15 @@ export default function ClienteForm({ cambiarVista }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const nuevoCli = { nombre, apellido, fecha, email, telefono };
+    const telRegex = /^[0-9]{8,15}$/;
+    if (!telRegex.test(telefono)) {
+      alert(
+        "Ingrese un número de teléfono válido (solo números, 8-15 dígitos)"
+      );
+      return;
+    }
 
+    const nuevoCli = { nombre, apellido, fecha, email, telefono };
     try {
       const res = await fetch("http://localhost:3007/clientes", {
         method: "POST",
@@ -38,7 +45,6 @@ export default function ClienteForm({ cambiarVista }) {
       <form onSubmit={handleSubmit}>
         <fieldset>
           <legend>Ingresar datos personales</legend>
-
           <div className="form_input">
             <label>Nombre</label>
             <input
@@ -48,7 +54,6 @@ export default function ClienteForm({ cambiarVista }) {
               required
             />
           </div>
-
           <div className="form_input">
             <label>Apellido</label>
             <input
@@ -58,7 +63,6 @@ export default function ClienteForm({ cambiarVista }) {
               required
             />
           </div>
-
           <div className="form_input">
             <label>Fecha Nacimiento</label>
             <input
@@ -68,7 +72,6 @@ export default function ClienteForm({ cambiarVista }) {
               required
             />
           </div>
-
           <div className="form_input">
             <label>Email</label>
             <input
@@ -78,7 +81,6 @@ export default function ClienteForm({ cambiarVista }) {
               required
             />
           </div>
-
           <div className="form_input">
             <label>Teléfono</label>
             <input
@@ -88,7 +90,6 @@ export default function ClienteForm({ cambiarVista }) {
               required
             />
           </div>
-
           <div className="form_submit">
             <button type="submit">Finalizar</button>
             <button type="button" onClick={() => cambiarVista("menu")}>

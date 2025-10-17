@@ -21,7 +21,6 @@ export default function AdminHome({ cambiarVista }) {
   return (
     <div id="pantalla_admin">
       <h1 id="h1_bienvenida">Bienvenido {admin.nombre}!!</h1>
-
       <div id="menu_admin">
         <p>Seleccione la sección a la que desea ir:</p>
         <button
@@ -49,7 +48,6 @@ export default function AdminHome({ cambiarVista }) {
           Modificar datos propios
         </button>
       </div>
-
       {mostrarForm && (
         <div id="modificar_datos_admin">
           <h2>Modificar datos propios</h2>

@@ -114,7 +114,7 @@ form {
 
 th,
 td {
-  min-width: 100px;
+  min-width: auto;
 }
 
 .form_input {
@@ -169,7 +169,7 @@ fieldset {
 table {
   border-collapse: collapse;
   width: 100%;
-  max-width: 500px;
+  max-width: 100%;
   margin: 20px auto;
 }
 
@@ -177,7 +177,7 @@ th,
 td {
   padding: 4px 12px;
   border: 2px solid #777;
-  color: #eee;
+  color: #000000;
   text-align: center;
 }
 

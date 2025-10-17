@@ -7,7 +7,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  min-height: 100%;
 }
 
 h1,
@@ -85,17 +85,17 @@ button:hover {
 }
 
 #listado_clientes {
-  width: 90%;
+  width: auto;
   max-width: 1200px;
-  margin: 20px auto;
+  margin: 10% auto;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 15px #0005;
-  display: flex;
+  display: inline-block;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  overflow-x: auto;
+  overflow-x: visible;
 }
 
 #listado_clientes h2 {
@@ -123,9 +123,11 @@ button:hover {
 
 #tabla_clientes {
   width: 100%;
-  min-width: 600px;
+  max-width: 100%;
   border-collapse: collapse;
   margin-top: 10px;
+  table-layout: fixed;
+  word-wrap: break-word;
 }
 
 #tabla_clientes th,
@@ -220,6 +222,9 @@ button:hover {
   }
   h2 {
     font-size: 18px;
+  }
+  #listado_clientes {
+    overflow-x: auto;
   }
 }
 

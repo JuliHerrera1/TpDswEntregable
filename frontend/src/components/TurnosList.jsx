@@ -1,7 +1,11 @@
 import { useState, useEffect } from "react";
 import "./Turnos.css";
 
-export default function TurnosList({ cambiarVista, setTurnoEdicion }) {
+export default function TurnosList({
+  cambiarVista,
+  setTurnoEdicion,
+  volverAlMenu,
+}) {
   const [turnos, setTurnos] = useState([]);
   const [filtro, setFiltro] = useState("");
 
@@ -61,7 +65,7 @@ export default function TurnosList({ cambiarVista, setTurnoEdicion }) {
           </tr>
         </thead>
         <tbody>
-          {turnos.length === 0 && (
+          {turnos.length == 0 && (
             <tr>
               <td colSpan="5">No hay turnos disponibles</td>
             </tr>
@@ -96,7 +100,7 @@ export default function TurnosList({ cambiarVista, setTurnoEdicion }) {
           })}
         </tbody>
       </table>
-      <button onClick={() => cambiarVista("turnosHome")}>Volver al menú</button>
+      <button onClick={volverAlMenu}>Volver al menú</button>
     </div>
   );
 }

@@ -11,7 +11,10 @@ export default function TurnosForm({
 
   useEffect(() => {
     if (turnoEdicion) {
-      setDia(turnoEdicion.dia);
+      const fechaFormateada = turnoEdicion.dia
+        ? turnoEdicion.dia.split("T")[0]
+        : "";
+      setDia(fechaFormateada);
       setHora(turnoEdicion.hora);
       setCupos(turnoEdicion.cupos);
     } else {
@@ -25,6 +28,15 @@ export default function TurnosForm({
     e.preventDefault();
     if (!dia || !hora || !cupos || cupos <= 0) {
       alert("Complete correctamente todos los campos!!");
+      return;
+    }
+
+    const hoy = new Date();
+    const fechaTurno = new Date(dia);
+    hoy.setHours(0, 0, 0, 0);
+    fechaTurno.setHours(0, 0, 0, 0);
+    if (fechaTurno < hoy) {
+      alert("La fecha del turno no puede ser anterior a hoy!!");
       return;
     }
 

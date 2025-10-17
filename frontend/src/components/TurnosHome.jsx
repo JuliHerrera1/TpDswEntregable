@@ -38,6 +38,7 @@ export default function TurnosHome({ cambiarVista }) {
 
       {vista === "listado" && (
         <TurnosList
+          volverAlMenu={() => setVista("menu")}
           cambiarVista={abrirFormulario}
           setTurnoEdicion={setTurnoEdicion}
         />

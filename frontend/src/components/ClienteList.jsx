@@ -23,7 +23,6 @@ export default function ClienteList({ cambiarVista }) {
   useEffect(() => {
     obtenerClientes();
   }, [filtro]);
-
   //Eliminamos al cli del back
   const borrarCliente = async (id) => {
     if (!confirm(`¿Seguro que desea eliminar al cliente ${id}?`)) return;
@@ -38,7 +37,6 @@ export default function ClienteList({ cambiarVista }) {
       alert("Error al borrar cliente!!");
     }
   };
-
   // Guardamos las modificaciones del cli en el back
   const guardarCambios = async () => {
     if (!clienteEditando) return;
@@ -56,13 +54,16 @@ export default function ClienteList({ cambiarVista }) {
       }
       const data = await res.json();
       alert(data.mensaje);
+
+      setClientes(
+        clientes.map((c) => (c.id === clienteEditando.id ? clienteEditando : c))
+      );
+
       setClienteEditando(null);
-      obtenerClientes();
     } catch {
       alert("Error al guardar los cambios!");
     }
   };
-
   return (
     <div>
       {/*LISTADO*/}
@@ -111,7 +112,6 @@ export default function ClienteList({ cambiarVista }) {
           <button onClick={() => cambiarVista("menu")}>Volver al menú</button>
         </div>
       )}
-
       {/* FORM DE EDICIÓN */}
       {clienteEditando && (
         <div id="form_editar_cliente">

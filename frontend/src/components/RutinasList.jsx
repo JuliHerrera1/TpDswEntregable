@@ -24,7 +24,6 @@ export default function RutinasList({ cambiarVista }) {
       alert("Error al obtener rutinas!!");
     }
   };
-
   const obtenerClientes = async () => {
     try {
       const res = await fetch("http://localhost:3007/clientes");
@@ -34,16 +33,13 @@ export default function RutinasList({ cambiarVista }) {
       alert("Error al obtener clientes!!");
     }
   };
-
   useEffect(() => {
     obtenerRutinas();
     obtenerClientes();
   }, [filtro]);
-
   const verEjercicios = async (idRutina) => {
     const fila = document.getElementById(`ejercicios-${idRutina}`);
     const lista = document.getElementById(`lista-ejercicios-${idRutina}`);
-
     if (fila.style.display === "none") {
       try {
         const res = await fetch(

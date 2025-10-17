@@ -10,12 +10,12 @@ import RutinasList from "./components/RutinasList";
 import "./clientes.css";
 
 export default function App() {
-  const [vista, setVista] = useState("admin");
-
+  const [vista, setVista] = useState("admin"); //VISTA GUARDA UN STRING QUE INDICA QUE PANTALLA MOSTRAR Y SETVISTA ES LA FUNCION QUE PERMITE CAMBIAR ESE VALOR. INICIALMENTE ESTA EN ADMIN
   return (
     <div>
       {/*Vistas q tiene el Adminn de clientes*/}
       {vista === "menu" && <MenuCliente cambiarVista={setVista} />}
+      {/*SI VISTA ES MENU SE MUESTRA EL COMPONENTE MenuCliente*/}
       {vista === "crearCliente" && <ClienteForm cambiarVista={setVista} />}
       {vista === "listado" && <ClienteList cambiarVista={setVista} />}
       {/*Vistas que tiene el Adminn*/}
@@ -29,3 +29,4 @@ export default function App() {
     </div>
   );
 }
+//El operador && hace que el componente a la derecha se renderice solo si la condicion de la izquierda es verdadera.
